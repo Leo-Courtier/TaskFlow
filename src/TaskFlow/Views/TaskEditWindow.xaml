@@ -1,0 +1,70 @@
+﻿<Window x:Class="TaskFlow.Views.TaskEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding WindowTitle}" Height="480" Width="560"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Titre" Style="{StaticResource FormLabel}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,6,0,0" Padding="4"
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Projet" Style="{StaticResource FormLabel}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,6,0,0" Padding="4"
+                 Text="{Binding Project, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Responsable" Style="{StaticResource FormLabel}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,6,0,0" Padding="4"
+                 Text="{Binding Assignee, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Priorité" Style="{StaticResource FormLabel}" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,6,0,0"
+                  ItemsSource="{Binding Priorities}"
+                  SelectedItem="{Binding SelectedPriority}" />
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Statut" Style="{StaticResource FormLabel}" />
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,6,0,0"
+                  ItemsSource="{Binding States}"
+                  SelectedItem="{Binding SelectedState}" />
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Échéance / Charge" Style="{StaticResource FormLabel}" />
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="0,6,0,0">
+            <TextBox Width="140" Padding="4"
+                     Text="{Binding DueDateText, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="jj/mm/aaaa" VerticalAlignment="Center" Margin="8,0,20,0" Foreground="Gray" />
+            <TextBox Width="60" Padding="4"
+                     Text="{Binding EstimatedHoursText, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="heures" VerticalAlignment="Center" Margin="8,0,0,0" Foreground="Gray" />
+        </StackPanel>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="Description" Style="{StaticResource FormLabel}"
+               VerticalAlignment="Top" />
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,6,0,0" Padding="4"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Valider" Click="Ok_Click" IsDefault="True" />
+            <Button Content="Annuler" Click="Cancel_Click" Margin="0" />
+        </StackPanel>
+    </Grid>
+</Window>
