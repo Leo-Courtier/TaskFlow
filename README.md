@@ -259,29 +259,20 @@ l'application, la relancer. Inspecter aussi le fichier
 
 ## Consignes de rendu
 
-1. Travaillez sur une branche par ticket : `fix/TF-004`, `fix/TF-011`, …
-2. **Un commit par ticket corrigé**, dont le message suit ce format :
+1. Les projets ne seront pas récupérés, nous échangerons à l'oral sur les différentes solutions proposées et les causes identifiées.
 
-   ```
-   TF-004 : corrige l'avancement toujours nul et le crash sur recherche vide
-
-   Cause racine : ...
-   Correctif    : ...
-   Vérification : ...
-   ```
-
-3. Pour chaque ticket, vous devez être capable d'expliquer à l'oral :
+2. Pour chaque ticket, vous devez être capable d'expliquer à l'oral :
    - le **symptôme** observé,
    - la **cause racine** (pas « j'ai changé la ligne 42 »),
    - pourquoi votre correctif la traite **et ne masque pas** le problème.
 
-4. Ne corrigez pas un ticket en supprimant la fonctionnalité.
+3. Ne corrigez pas un ticket en supprimant la fonctionnalité.
 
 ---
 
 ## Bonus — pistes d'amélioration libres
 
-Non demandées, non notées, mais c'est là que le projet devient propre :
+Non demandées, mais c'est là que le projet devient propre :
 
 - MVVM réellement respecté : plus de logique métier dans le code-behind, plus de
   `MessageBox` ni de `Window` instanciée depuis un ViewModel
